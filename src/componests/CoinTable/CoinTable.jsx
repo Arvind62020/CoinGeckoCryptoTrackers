@@ -4,6 +4,7 @@ import { fetchCoinData } from "../../services/fetchCoinData";
 import { useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import currencyStore from '../../state/store';
+import PageLoader  from "../PageLoader/PageLoader";
 //import { CurrencyContext } from "../../context/CurrencyContext";
 
 function CoinTable(){
@@ -30,7 +31,7 @@ function CoinTable(){
 
 
     if (isLoading) {
-        return <div>Loading.........</div>;
+        return <div><PageLoader /></div>;
     }
 
     if (isError) {
