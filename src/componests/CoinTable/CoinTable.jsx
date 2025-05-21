@@ -62,7 +62,7 @@ function CoinTable(){
                         <div onClick={() => handleCoinRedirect(coin.id)} key={coin.id} className="w-full bg-transparent text-white flex py-4 px-2 font-semibold items-center justify-between cursor-pointer">
                             <div className="flex items-center justify-start gap-3 basis-[35%]">
                                 <div className="w-[5rem] h-[5rem]">
-                                    <img src={coin.image} className="w-full h-full"/>
+                                    <img src={coin.image} className="w-full h-full" loading="lazy"/>
                                 </div>
 
                                 <div className="flex flex-col"> 
