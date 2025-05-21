@@ -1,12 +1,17 @@
 import { useContext, useEffect, useState } from "react";
 
 import { fetchCoinData } from "../../services/fetchCoinData";
+import { useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import currencyStore from '../../state/store';
 //import { CurrencyContext } from "../../context/CurrencyContext";
 
 function CoinTable(){
     const { currency } = currencyStore();
+
+    const navigate = useNavigate();
+    
+
     const [page, setPage] = useState(1);
 
     const { data, isLoading, isError, error } = useQuery({
@@ -17,6 +22,12 @@ function CoinTable(){
   cacheTime: 1000 * 60 * 2,
   staleTime: 1000 * 60 * 2,
 });
+
+
+ function handleCoinRedirect(id) {
+        navigate(`/details/${id}`);
+    }
+
 
     if (isLoading) {
         return <div>Loading.........</div>;
